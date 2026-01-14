@@ -2,6 +2,8 @@
 
 通过 frp + xray 将内网服务代理到公网，实现在家访问公司/内网资源。
 
+![VPN Proxy Data Flow](cover.png)
+
 ## 架构图
 
 ```
