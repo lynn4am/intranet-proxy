@@ -1,0 +1,16 @@
+version: '3.8'
+
+# 公网 VPS 部署配置模板
+# 实际配置由 setup.sh 自动生成
+
+services:
+  frps:
+    image: snowdreamtech/frps
+    container_name: frps
+    restart: always
+    ports:
+      - "7000:7000"    # frp 通信端口
+      - "9000:9000"    # xray 代理端口（转发到内网）
+    volumes:
+      - ./frps.toml:/etc/frp/frps.toml
+    command: ["-c", "/etc/frp/frps.toml"]

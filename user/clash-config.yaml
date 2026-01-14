@@ -1,0 +1,26 @@
+# Clash 配置片段模板
+# 实际配置由 setup.sh 自动生成
+
+# 将以下内容添加到你的 Clash 配置中
+
+# 在 proxies 部分添加：
+proxies:
+  - name: "内网代理"
+    type: ss
+    server: YOUR_VPS_IP
+    port: 9000
+    cipher: aes-128-gcm
+    password: "YOUR_XRAY_PASSWORD"
+
+# 在 proxy-groups 部分添加（可选）：
+# proxy-groups:
+#   - name: "内网访问"
+#     type: select
+#     proxies:
+#       - 内网代理
+
+# 在 rules 部分添加（可选，按需配置内网 IP 段）：
+# rules:
+#   - IP-CIDR,10.0.0.0/8,内网代理
+#   - IP-CIDR,172.16.0.0/12,内网代理
+#   - IP-CIDR,192.168.0.0/16,内网代理

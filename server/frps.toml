@@ -1,0 +1,10 @@
+# frp 服务端配置模板
+# 部署在公网 VPS 上
+# 实际配置由 setup.sh 自动生成
+
+bindPort = 7000
+auth.token = "YOUR_FRP_TOKEN"
+
+# 日志配置
+log.to = "console"
+log.level = "info"

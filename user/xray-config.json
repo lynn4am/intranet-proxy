@@ -1,0 +1,30 @@
+{
+  "inbounds": [
+    {
+      "port": 1080,
+      "protocol": "socks",
+      "settings": {
+        "udp": true
+      }
+    },
+    {
+      "port": 1081,
+      "protocol": "http"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "YOUR_VPS_IP",
+            "port": 9000,
+            "method": "aes-128-gcm",
+            "password": "YOUR_XRAY_PASSWORD"
+          }
+        ]
+      }
+    }
+  ]
+}

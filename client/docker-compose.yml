@@ -1,0 +1,30 @@
+version: '3.8'
+
+# 内网机器部署配置模板
+# 实际配置由 setup.sh 自动生成
+
+services:
+  xray:
+    image: teddysun/xray
+    container_name: xray
+    restart: always
+    volumes:
+      - ./xray-config.json:/etc/xray/config.json
+    networks:
+      - proxy-net
+
+  frpc:
+    image: snowdreamtech/frpc
+    container_name: frpc
+    restart: always
+    depends_on:
+      - xray
+    volumes:
+      - ./frpc.toml:/etc/frp/frpc.toml
+    command: ["-c", "/etc/frp/frpc.toml"]
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    driver: bridge

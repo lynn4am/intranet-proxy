@@ -1,0 +1,19 @@
+# frp 客户端配置模板
+# 部署在内网机器上
+# 实际配置由 setup.sh 自动生成
+
+serverAddr = "YOUR_VPS_IP"
+serverPort = 7000
+auth.token = "YOUR_FRP_TOKEN"
+
+# 日志配置
+log.to = "console"
+log.level = "info"
+
+# xray 代理端口转发
+[[proxies]]
+name = "xray-proxy"
+type = "tcp"
+localIP = "xray"
+localPort = 9000
+remotePort = 9000
